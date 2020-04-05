@@ -1,0 +1,45 @@
+.container{
+    width: 80%;
+    height: 400px;
+    background-color: #f0b7d0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background: gold;
+    border-radius: 5px;
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+
+.display {
+    border-radius: 5px;
+    border: 2px solid;
+    background: aqua;
+    margin-bottom: 15px;
+    height: 80px;
+    text-align: center;
+}
+
+.counterBlock .display {
+    font-size: 40px;
+}
+
+.filter-red {
+    color: red;
+}
+
+.controlPanel {
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid;
+    display: flex;
+    justify-content: space-between;
+}
