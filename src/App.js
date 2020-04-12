@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import Display from "./Display";
-import ControlPanel from "./ControlPanel";
+import DisplayUser from "./DisplayUser";
+import ControlPanelUser from "./ControlPanelUser";
 import DisplayConfig from "./DisplayConfig";
+import ControlPanelConfig from "./ControlPanelConfig";
 
 
 class App extends React.Component {
@@ -12,22 +13,44 @@ class App extends React.Component {
     }
 
     state = {
-        counterNumber: 0,
-        setMaxValue: 5
+        setMinValue: 0,
+        setMaxValue: 7,
+        memoryValue: 0,
+        setIsDisabled: true,
     };
 
 
+
     resetToZero = () => {
-        let resetCounterNumb = 0;
-        this.setState({counterNumber: resetCounterNumb})
+        let resetCounterNumb = this.state.setMinValue;
+        this.setState({memoryValue: resetCounterNumb})
     }
 
     incCounter = () => {
 
-        let newNubmer = this.state.counterNumber + 1;
+
+        // debugger;
+        let newNubmer = parseInt(this.state.memoryValue) + 1;
         if (newNubmer <= this.state.setMaxValue) {
-            this.setState({counterNumber: newNubmer})
+            this.setState({memoryValue: newNubmer})
         }
+        // alert(this.state.memoryValue)
+        // this.setState({memoryValue: newNubmer})
+    }
+
+    setSettings = () => {
+        this.setState({setIsDisabled: true})
+    }
+
+    adjustValueMax = (value) => {
+        this.setState({setMaxValue: value, setIsDisabled: false})
+
+    }
+    adjustValueMin = (value) => {
+        // debugger;
+        this.setState({setMinValue: value, setIsDisabled: false, memoryValue: value})
+        // this.setState({setMinValue: value, setIsDisabled: false, memoryValue: 4})
+
     }
 
 
@@ -37,15 +60,18 @@ class App extends React.Component {
             <div className="container">
                 <div className="configBlock">
                     <div className="box">
-                        <DisplayConfig />
-                        <div className="controlPanel">set</div>
+                        <DisplayConfig state={this.state} adjustValueMin={this.adjustValueMin}
+                                       adjustValueMax={this.adjustValueMax}/>
+                        <ControlPanelConfig setSettings={this.setSettings} state={this.state}/>
+                        {/*<div className="controlPanel">set</div>*/}
                     </div>
                 </div>
 
                 <div className="counterBlock">
                     <div className="box">
-                        <Display state={this.state}/>
-                        <ControlPanel state={this.state} incCounter={this.incCounter} resetToZero={this.resetToZero}/>
+                        <DisplayUser state={this.state}/>
+                        <ControlPanelUser state={this.state} incCounter={this.incCounter}
+                                          resetToZero={this.resetToZero}/>
                     </div>
                 </div>
 

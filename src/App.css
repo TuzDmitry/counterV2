@@ -16,10 +16,14 @@
     display: flex;
     flex-direction: column;
     padding: 15px;
+    justify-content: space-around;
 }
 
 
 .display {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     border-radius: 5px;
     border: 2px solid;
     background: aqua;
@@ -29,7 +33,7 @@
 }
 
 .counterBlock .display {
-    font-size: 40px;
+
 }
 
 .filter-red {
@@ -41,5 +45,25 @@
     border-radius: 5px;
     border: 2px solid;
     display: flex;
+    justify-content: space-around;
+}
+.containerValue{
+    padding: 5px;
+    display: flex;
     justify-content: space-between;
+}
+
+.containerValue input{
+    border-radius: 3px;
+    width: 50%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1em;
+}
+
+.numb{
+    font-size: 40px;
+}
+.message{
+
 }
