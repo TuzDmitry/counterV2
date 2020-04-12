@@ -20,7 +20,6 @@ class App extends React.Component {
     };
 
 
-
     resetToZero = () => {
         let resetCounterNumb = this.state.setMinValue;
         this.setState({memoryValue: resetCounterNumb})
@@ -43,12 +42,20 @@ class App extends React.Component {
     }
 
     adjustValueMax = (value) => {
-        this.setState({setMaxValue: value, setIsDisabled: false})
+        if ((value < 0)||(value<=this.state.setMinValue)) {
+            this.setState({setMinValue: value, setIsDisabled: true})
+        } else {
+            this.setState({setMaxValue: value, setIsDisabled: false})
+        }
 
     }
     adjustValueMin = (value) => {
         // debugger;
-        this.setState({setMinValue: value, setIsDisabled: false, memoryValue: value})
+        if ((value < 0)||(value>=this.state.setMaxValue)) {
+            this.setState({setMinValue: value, setIsDisabled: true})
+        } else {
+            this.setState({setMinValue: value, setIsDisabled: false, memoryValue: value})
+        }
         // this.setState({setMinValue: value, setIsDisabled: false, memoryValue: 4})
 
     }
