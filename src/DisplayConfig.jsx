@@ -1,4 +1,5 @@
 import React from 'react';
+import ComponentInstaller from "./ComponentInstaller";
 
 class DisplayConfig extends React.Component {
 
@@ -24,20 +25,25 @@ class DisplayConfig extends React.Component {
             // <div className={`display ${classRedForDisplay}`}>
             <div className="display">
                 {/*{this.props.state.counterNumber}*/}
-                <div className="containerValue">
-                    <div>max value:</div>
-                    <input type="number"
-                           value={this.props.state.setMaxValue}
-                           onChange={this.onChangeValueMax}/>
-                </div>
-                <div className="containerValue">
-                    <div>start value:</div>
-                    <input type="number"
-                           value={this.props.state.setMinValue}
-                           onChange={this.onChangeValueMin}/>
-                </div>
+                {/*<div className="containerValue">*/}
+                {/*    <div>max value:</div>*/}
+                {/*    <input type="number"*/}
+                {/*           value={this.props.state.setMaxValue}*/}
+                {/*           onChange={this.onChangeValueMax}/>*/}
+                {/*</div>*/}
+                {/*<div className="containerValue">*/}
+                {/*    <div>start value:</div>*/}
+                {/*    <input type="number"*/}
+                {/*           value={this.props.state.setMinValue}*/}
+                {/*           onChange={this.onChangeValueMin}/>*/}
+                {/*</div>*/}
 
-
+                <ComponentInstaller nameInstaller={"max value:"}
+                                    value={this.props.state.setMaxValue}
+                                    onChangeFunc={this.onChangeValueMax}/>
+                <ComponentInstaller nameInstaller={"start value:"}
+                                    value={this.props.state.setMinValue}
+                                    onChangeFunc={this.onChangeValueMin}/>
             </div>
         );
     }

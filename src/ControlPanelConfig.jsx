@@ -9,7 +9,6 @@ class ControlPanelConfig extends React.Component {
 
         return (
             <div className="controlPanel">
-
                 <Button name={'set'} setDisabled={setDisabled} onClickFunc={this.props.setSettings}/>
             </div>
         );

@@ -4,7 +4,8 @@ import DisplayUser from "./DisplayUser";
 import ControlPanelUser from "./ControlPanelUser";
 import DisplayConfig from "./DisplayConfig";
 import ControlPanelConfig from "./ControlPanelConfig";
-
+import ComponentUser from "./ComponentUser";
+import ComponentConfig from "./ComponentConfig";
 
 
 class App extends React.Component {
@@ -61,22 +62,28 @@ class App extends React.Component {
 
         return (
             <div className="container">
-                <div className="configBlock">
-                    <div className="box">
-                        <DisplayConfig state={this.state} adjustValueMin={this.adjustValueMin}
-                                       adjustValueMax={this.adjustValueMax}/>
-                        <ControlPanelConfig setSettings={this.setSettings} state={this.state}/>
-                    </div>
-                </div>
+                {/*<div className="configBlock">*/}
+                {/*    <div className="box">*/}
+                {/*        <DisplayConfig state={this.state} adjustValueMin={this.adjustValueMin}*/}
+                {/*                       adjustValueMax={this.adjustValueMax}/>*/}
+                {/*        <ControlPanelConfig setSettings={this.setSettings} state={this.state}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                <ComponentConfig state={this.state}
+                                 adjustValueMin={this.adjustValueMin}
+                                 adjustValueMax={this.adjustValueMax}
+                                 setSettings={this.setSettings}/>
 
-                <div className="counterBlock">
-                    <div className="box">
-                        <DisplayUser state={this.state}/>
-                        <ControlPanelUser state={this.state} incCounter={this.incCounter}
-                                          resetToZero={this.resetToZero}/>
-                    </div>
-                </div>
-
+                {/*<div className="counterBlock">*/}
+                {/*    <div className="box">*/}
+                {/*        <DisplayUser state={this.state}/>*/}
+                {/*        <ControlPanelUser state={this.state} incCounter={this.incCounter}*/}
+                {/*                          resetToZero={this.resetToZero}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                <ComponentUser state={this.state}
+                               incCounter={this.incCounter}
+                               resetToZero={this.resetToZero}/>
             </div>
         );
     }
