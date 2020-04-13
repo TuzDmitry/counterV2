@@ -4,8 +4,7 @@ class ComponentInstaller extends React.Component {
 
 
     render = () => {
-///////////эта штука пока нам не нужна
-//         let classRedForDisplay = this.props.state.counterNumber === this.props.state.setMaxValue ? "filter-red" : "";
+
 
         return (
             <div className="containerValue">

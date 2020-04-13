@@ -25,21 +25,7 @@ class DisplayConfig extends React.Component {
          let classRedForMinValue = (maxV<=minV||minV<0) ? "input-red" : "";
 
         return (
-            // <div className={`display ${classRedForDisplay}`}>
             <div className="display">
-                {/*{this.props.state.counterNumber}*/}
-                {/*<div className="containerValue">*/}
-                {/*    <div>max value:</div>*/}
-                {/*    <input type="number"*/}
-                {/*           value={this.props.state.setMaxValue}*/}
-                {/*           onChange={this.onChangeValueMax}/>*/}
-                {/*</div>*/}
-                {/*<div className="containerValue">*/}
-                {/*    <div>start value:</div>*/}
-                {/*    <input type="number"*/}
-                {/*           value={this.props.state.setMinValue}*/}
-                {/*           onChange={this.onChangeValueMin}/>*/}
-                {/*</div>*/}
 
                 <ComponentInstaller nameInstaller={"max value:"}
                                     value={this.props.state.setMaxValue}

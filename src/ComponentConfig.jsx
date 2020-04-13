@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import DisplayUser from "./DisplayUser";
-import ControlPanelUser from "./ControlPanelUser";
 import DisplayConfig from "./DisplayConfig";
 import ControlPanelConfig from "./ControlPanelConfig";
 

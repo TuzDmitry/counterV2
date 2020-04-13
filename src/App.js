@@ -1,9 +1,5 @@
 import React from 'react';
 import './App.css';
-import DisplayUser from "./DisplayUser";
-import ControlPanelUser from "./ControlPanelUser";
-import DisplayConfig from "./DisplayConfig";
-import ControlPanelConfig from "./ControlPanelConfig";
 import ComponentUser from "./ComponentUser";
 import ComponentConfig from "./ComponentConfig";
 
@@ -21,21 +17,16 @@ class App extends React.Component {
         setIsDisabled: true,
     };
 
-
     resetToZero = () => {
         let resetCounterNumb = this.state.setMinValue;
         this.setState({memoryValue: resetCounterNumb})
     }
 
     incCounter = () => {
-
-
-        // debugger;
         let newNubmer = parseInt(this.state.memoryValue) + 1;
         if (newNubmer <= this.state.setMaxValue) {
             this.setState({memoryValue: newNubmer})
         }
-
     }
 
     setSettings = () => {
@@ -47,8 +38,6 @@ class App extends React.Component {
         if ((value < 0) || (value <= this.state.setMinValue)) {
             this.setState({setIsDisabled: true})
         }
-
-
     }
     adjustValueMin = (value) => {
         this.setState({setMinValue: value, setIsDisabled: false})
@@ -62,25 +51,11 @@ class App extends React.Component {
 
         return (
             <div className="container">
-                {/*<div className="configBlock">*/}
-                {/*    <div className="box">*/}
-                {/*        <DisplayConfig state={this.state} adjustValueMin={this.adjustValueMin}*/}
-                {/*                       adjustValueMax={this.adjustValueMax}/>*/}
-                {/*        <ControlPanelConfig setSettings={this.setSettings} state={this.state}/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <ComponentConfig state={this.state}
                                  adjustValueMin={this.adjustValueMin}
                                  adjustValueMax={this.adjustValueMax}
                                  setSettings={this.setSettings}/>
 
-                {/*<div className="counterBlock">*/}
-                {/*    <div className="box">*/}
-                {/*        <DisplayUser state={this.state}/>*/}
-                {/*        <ControlPanelUser state={this.state} incCounter={this.incCounter}*/}
-                {/*                          resetToZero={this.resetToZero}/>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <ComponentUser state={this.state}
                                incCounter={this.incCounter}
                                resetToZero={this.resetToZero}/>
