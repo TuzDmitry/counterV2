@@ -6,6 +6,7 @@ import DisplayConfig from "./DisplayConfig";
 import ControlPanelConfig from "./ControlPanelConfig";
 
 
+
 class App extends React.Component {
 
     constructor(props) {
@@ -33,31 +34,26 @@ class App extends React.Component {
         if (newNubmer <= this.state.setMaxValue) {
             this.setState({memoryValue: newNubmer})
         }
-        // alert(this.state.memoryValue)
-        // this.setState({memoryValue: newNubmer})
+
     }
 
     setSettings = () => {
-        this.setState({setIsDisabled: true})
+        this.setState({setIsDisabled: true, memoryValue: this.state.setMinValue})
     }
 
     adjustValueMax = (value) => {
-        if ((value < 0)||(value<=this.state.setMinValue)) {
-            this.setState({setMinValue: value, setIsDisabled: true})
-        } else {
-            this.setState({setMaxValue: value, setIsDisabled: false})
+        this.setState({setMaxValue: value, setIsDisabled: false})
+        if ((value < 0) || (value <= this.state.setMinValue)) {
+            this.setState({setIsDisabled: true})
         }
+
 
     }
     adjustValueMin = (value) => {
-        // debugger;
-        if ((value < 0)||(value>=this.state.setMaxValue)) {
-            this.setState({setMinValue: value, setIsDisabled: true})
-        } else {
-            this.setState({setMinValue: value, setIsDisabled: false, memoryValue: value})
+        this.setState({setMinValue: value, setIsDisabled: false})
+        if ((value < 0) || (value >= this.state.setMaxValue)) {
+            this.setState({setIsDisabled: true})
         }
-        // this.setState({setMinValue: value, setIsDisabled: false, memoryValue: 4})
-
     }
 
 
@@ -70,7 +66,6 @@ class App extends React.Component {
                         <DisplayConfig state={this.state} adjustValueMin={this.adjustValueMin}
                                        adjustValueMax={this.adjustValueMax}/>
                         <ControlPanelConfig setSettings={this.setSettings} state={this.state}/>
-                        {/*<div className="controlPanel">set</div>*/}
                     </div>
                 </div>
 

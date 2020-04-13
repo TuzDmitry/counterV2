@@ -3,12 +3,15 @@ import React from 'react';
 class DisplayConfig extends React.Component {
 
     onChangeValueMax=(e)=>{
-        this.props.adjustValueMax(e.currentTarget.value)
+        let value = parseInt(e.currentTarget.value)
+        this.props.adjustValueMax(value)
         // alert(e.currentTarget)
         // debugger;
     }
     onChangeValueMin=(e)=>{
-        this.props.adjustValueMin(e.currentTarget.value)
+        let value = parseInt(e.currentTarget.value)
+
+        this.props.adjustValueMin(value)
         // alert(e.currentTarget)
         // debugger;
     }

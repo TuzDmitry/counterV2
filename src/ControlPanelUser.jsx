@@ -4,17 +4,16 @@ import Button from "./Button";
 class ControlPanelUser extends React.Component {
 
     render = () => {
+        let maxV=this.props.state.setMaxValue;
+        let minV=this.props.state.setMinValue;
+        let memo=this.props.state.memoryValue;
 
-        let setDisabledForInc = this.props.state.memoryValue === this.props.state.setMaxValue? true : false;
-        let setDisabledForReset = this.props.state.setMinValue === this.props.state.memoryValue ? true : false;
+        let setDisabledForInc = (memo === maxV)||!this.props.state.setIsDisabled||(maxV<=minV||minV<0||maxV<0)? true : false;
+        let setDisabledForReset = (minV === memo)||!this.props.state.setIsDisabled||(maxV<=minV||minV<0||maxV<0) ? true : false;
 
         return (
             <div className="controlPanel">
-                {this.props.state.setIsDisabled &&<Button setDisabled={setDisabledForInc} name={'inc'} onClickFunc={this.props.incCounter}/>}
-                {!this.props.state.setIsDisabled
-                &&<Button setDisabled={setDisabledForInc} name={'inc'} onClickFunc={this.props.incCounter}/>
-                &&<Button setDisabled={setDisabledForReset} name={'reset'} onClickFunc={this.props.resetToZero}/>}
-
+                <Button setDisabled={setDisabledForInc} name={'inc'} onClickFunc={this.props.incCounter}/>
                 <Button setDisabled={setDisabledForReset} name={'reset'} onClickFunc={this.props.resetToZero}/>
             </div>
         );
