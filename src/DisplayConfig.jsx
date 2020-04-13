@@ -18,8 +18,11 @@ class DisplayConfig extends React.Component {
     }
 
     render = () => {
-///////////эта штука пока нам не нужна
-//         let classRedForDisplay = this.props.state.counterNumber === this.props.state.setMaxValue ? "filter-red" : "";
+        let maxV=this.props.state.setMaxValue;
+        let minV=this.props.state.setMinValue;
+
+         let classRedForMaxValue = (maxV<=minV||maxV<0) ? "input-red" : "";
+         let classRedForMinValue = (maxV<=minV||minV<0) ? "input-red" : "";
 
         return (
             // <div className={`display ${classRedForDisplay}`}>
@@ -40,10 +43,12 @@ class DisplayConfig extends React.Component {
 
                 <ComponentInstaller nameInstaller={"max value:"}
                                     value={this.props.state.setMaxValue}
-                                    onChangeFunc={this.onChangeValueMax}/>
+                                    onChangeFunc={this.onChangeValueMax}
+                                    classRed={classRedForMaxValue}/>
                 <ComponentInstaller nameInstaller={"start value:"}
                                     value={this.props.state.setMinValue}
-                                    onChangeFunc={this.onChangeValueMin}/>
+                                    onChangeFunc={this.onChangeValueMin}
+                                    classRed={classRedForMinValue}/>
             </div>
         );
     }

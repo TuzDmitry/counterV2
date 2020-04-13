@@ -40,6 +40,9 @@
     color: red;
     font-weight: bold;
 }
+.input-red{
+    background-color: lightcoral;
+}
 
 .controlPanel {
     padding: 15px;

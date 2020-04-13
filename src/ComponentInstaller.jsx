@@ -12,7 +12,8 @@ class ComponentInstaller extends React.Component {
                 <div>{this.props.nameInstaller}</div>
                 <input type="number"
                        value={this.props.value}
-                       onChange={this.props.onChangeFunc}/>
+                       onChange={this.props.onChangeFunc}
+                       className={this.props.classRed}/>
             </div>
         );
     }
