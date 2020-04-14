@@ -3,13 +3,13 @@ import ComponentInstaller from "./ComponentInstaller";
 
 class DisplayConfig extends React.Component {
 
-    onChangeValueMax=(e)=>{
+    onChangeValueMax = (e) => {
         let value = parseInt(e.currentTarget.value)
         this.props.adjustValueMax(value)
         // alert(e.currentTarget)
         // debugger;
     }
-    onChangeValueMin=(e)=>{
+    onChangeValueMin = (e) => {
         let value = parseInt(e.currentTarget.value)
 
         this.props.adjustValueMin(value)
@@ -18,11 +18,11 @@ class DisplayConfig extends React.Component {
     }
 
     render = () => {
-        let maxV=this.props.state.setMaxValue;
-        let minV=this.props.state.setMinValue;
+        let maxV = this.props.state.setMaxValue;
+        let minV = this.props.state.setMinValue;
 
-         let classRedForMaxValue = (maxV<=minV||maxV<0) ? "input-red" : "";
-         let classRedForMinValue = (maxV<=minV||minV<0) ? "input-red" : "";
+        let classRedForMaxValue = (maxV <= minV || maxV < 0) ? "input-red" : "";
+        let classRedForMinValue = (maxV <= minV || minV < 0) ? "input-red" : "";
 
         return (
             <div className="display">

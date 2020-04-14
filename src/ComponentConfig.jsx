@@ -1,14 +1,10 @@
 import React from 'react';
-import './App.css';
 import DisplayConfig from "./DisplayConfig";
 import ControlPanelConfig from "./ControlPanelConfig";
 
 
 class ComponentConfig extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
 
     render = () => {
 

@@ -15,10 +15,10 @@ class App extends React.Component {
     }
 
     state = {
-        setMinValue: 0,
+        setMinValue: 0,  ///MinValue название..
         setMaxValue: 5,
         memoryValue: 0,
-        setIsDisabled: true,
+        setIsDisabled: true,//можно поменять название
     };
     ///// метод, который будет брать текущий стейт и… сохранять его в localStorage
     saveState = () => {
@@ -27,21 +27,20 @@ class App extends React.Component {
     }
 
     restoreState = () => {
-        ////объявляем наш стейт стартовый
-        let state = {...this.state}
+
         //// считываем сохраненную ранее строку из localStorage
         let stateAsString = localStorage.getItem("counter-state")
         ////если таковая есть, то превращаем строку в объект и призваиваем стейту знаение из стораджа.
         if (stateAsString) {
-            state = JSON.parse(stateAsString);
+            let state = JSON.parse(stateAsString);
+            this.setState(state)
         }
 ////устанавливаем стейт или пустой или востановленный в стейт
-        this.setState(state)
+
     }
 
     resetToZero = () => {
-        let resetCounterNumb = this.state.setMinValue;
-        this.setState({memoryValue: resetCounterNumb})
+        this.setState({memoryValue: this.state.setMinValue})
     }
 
     incCounter = () => {
@@ -70,7 +69,6 @@ class App extends React.Component {
 
 
     render = () => {
-
         return (
             <div className="container">
                 <ComponentConfig state={this.state}
