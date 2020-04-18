@@ -5,9 +5,6 @@ import ControlPanelUser from "./ControlPanelUser";
 
 class ComponentUser extends React.Component {
 
-    constructor(props) {
-        super(props);
-    }
 
     render = () => {
 

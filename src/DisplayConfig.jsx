@@ -18,8 +18,9 @@ class DisplayConfig extends React.Component {
     }
 
     render = () => {
-        let maxV = this.props.state.setMaxValue;
-        let minV = this.props.state.setMinValue;
+        // let maxV = this.props.state.maxValue;
+        // let minV = this.props.state.minValue;
+        const {maxValue: maxV, minValue: minV} = this.props.state;
 
         let classRedForMaxValue = (maxV <= minV || maxV < 0) ? "input-red" : "";
         let classRedForMinValue = (maxV <= minV || minV < 0) ? "input-red" : "";
@@ -28,11 +29,11 @@ class DisplayConfig extends React.Component {
             <div className="display">
 
                 <ComponentInstaller nameInstaller={"max value:"}
-                                    value={this.props.state.setMaxValue}
+                                    value={maxV}
                                     onChangeFunc={this.onChangeValueMax}
                                     classRed={classRedForMaxValue}/>
                 <ComponentInstaller nameInstaller={"start value:"}
-                                    value={this.props.state.setMinValue}
+                                    value={minV}
                                     onChangeFunc={this.onChangeValueMin}
                                     classRed={classRedForMinValue}/>
             </div>

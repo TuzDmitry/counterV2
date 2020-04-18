@@ -5,7 +5,7 @@ class ControlPanelConfig extends React.Component {
 
     render = () => {
 
-        let setDisabled = this.props.state.setIsDisabled;
+        let setDisabled = this.props.state.isDisabledSet;
 
         return (
             <div className="controlPanel">
